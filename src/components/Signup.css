@@ -1,0 +1,58 @@
+.maindiv{
+    width: 400px;
+    height: 500px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+}
+
+.inputdiv{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    justify-content: center;
+    align-items: center;
+    
+}
+.inputdiv input{
+    padding: 10px;
+    margin:5px;
+    width: 70%;
+    border: solid 1px grey;
+}
+.inputdiv h6{
+    margin-top: 10px;
+}
+
+.terms {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+margin-left: 45px;
+}
+.terms p{
+    font-size: 10px;
+    
+}
+
+.lastdiv{
+    display: flex;
+flex-direction: column;
+align-items: center;
+}
+.lastdiv button{
+    padding: 15px;
+    width: 70%;
+    border: 2px ;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: rgb(23, 98, 163);
+}
+
+.lastdiv p{
+    font-size: 10px;
+
+}

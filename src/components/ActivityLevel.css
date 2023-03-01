@@ -1,0 +1,51 @@
+
+
+.MainActivity{
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.activity{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    flex-direction: column;
+}
+
+#divv{
+    align-items: flex-start;
+}
+#divv h4{
+    display: flex;
+
+}
+
+.activity p{
+    margin-top: -17px;
+    font-size: 12px;
+    display: flex;
+    margin-left: 2px;
+}
+.activity h4{
+    display: flex;
+    
+}
+
+.activity div{
+    border:2px solid  ;
+    border-radius: 5px;
+    margin-top: 5px;
+    width: 90%;
+    height: 60px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}

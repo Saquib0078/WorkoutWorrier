@@ -1,0 +1,54 @@
+.heightweight{
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+}
+.heightweight span{
+    margin-left: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.height{
+    margin-left: 20px;
+}
+
+.height input{
+    padding: 10px;
+    border:2px solid rgb(163, 159, 159);
+    width: 30%;
+}
+
+.weight{
+    margin-left: 20px;
+}
+.weight label h6{
+    margin-top: -30px;
+}
+
+.weight input{
+    padding: 10px;
+    border:2px solid rgb(163, 159, 159);
+    width: 30%;
+}
+.weight p{
+    font-size: 10px;
+    margin-top: -10px;
+}
+
+.goalweight{
+    margin-left: 20px;
+}
+
+.goalweight input{
+    padding: 10px;
+    border:2px solid rgb(163, 159, 159);
+    width: 30%;
+}
+.goalweight p{
+    font-size: 10px;
+    margin-top: -10px;
+}

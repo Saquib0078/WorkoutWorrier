@@ -1,0 +1,34 @@
+.Gparent{
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.gender {
+    margin-left: 20px;
+}
+.dob{
+    margin-left: 20px;
+}
+.dob input{
+    padding: 10px;
+    border: 2px solid rgb(180, 174, 174);
+    box-shadow: 2px;
+}
+
+.country{
+    margin-left: 20px;
+
+}
+
+.country select{
+    padding: 10px;
+    width: 100px;
+    border-radius: 5px;
+}
