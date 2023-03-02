@@ -36,11 +36,11 @@ const card=[
   }
 
 
-function ActivityLevel({activityLevel, setActivityLevel}) {
+function ActivityLevel({form,setForm}) {
   const [selectedCard, setSelectedCard] = useState(null);
   const handleCardClick = (card) => {
     setSelectedCard(card);
-    setActivityLevel(card)
+    setForm({...form,activityLevel:card})
     // console.log(setActivityLevel(card))
   };
   return (

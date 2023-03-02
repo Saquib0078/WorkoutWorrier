@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Welcome from "./Welcome";
 import Firstname from "./Firstname";
 import ActivityLevel from "./ActivityLevel";
 import Signup from "./Signup";
 import GoalBarriers from "./GoalBarriers";
-
+import {Link} from "react-router-dom"
 import SetGoals from "./SetGoals";
 import Gender from "./Gender";
 import HeightWeight from "./HeightWeight";
 import "./Form.css";
 function Form() {
- 
   const FormTitles = [
     "Welcome",
     "Whats your first name?",
@@ -23,42 +22,76 @@ function Form() {
   ];
 
   const [page, setPage] = useState(0);
-  const [fname, setFname] = useState('');
-  const[goals, setGoals] = useState('');
-  const[goalBarriers, setGoalBarriers] = useState('');
-  const[activityLevel, setActivityLevel] =useState({})
-  const[gender, setGender] = useState({});
-  const[email,setEmail]=useState('')
-  const[password,setPassword]=useState('')
-console.log(gender)
+  // const [fname, setFname] = useState("");
+  // const [goals, setGoals] = useState("");
+  // const [goalBarriers, setGoalBarriers] = useState("");
+  // const [activityLevel, setActivityLevel] = useState({});
+  // const [gender, setGender] = useState({});
+  // const [heightWeight, setHeightWeight] = useState({});
+  // const [regDetails, setRegDetails] = useState({});
+  const[form,setForm]=useState( {
+    fname :"",
+     goals:"",
+      barriers:"",
+       activityLevel: '',
+        gender: '',
+         country: '',
+          email: '',
+           password: '',
+            height: '', 
+            weight: '',
+             goalweight: '',
+             terms:""
+  })
+  console.log(form)
+
+  // useEffect(() => {
+  //   console.log(fullDetailsObj);
+  // }, [fullDetailsObj.regDetails.password]);
+
+  // console.log(fullDetailsObj);
 
   const PageDisplay = () => {
     switch (page) {
       case 0:
-        return <Welcome page={page} setPage={setPage} />;
+        return <Welcome page={page}  setPage={setPage}/>;
       case 1:
-        return <Firstname fname={fname} setFname={setFname} />;
+        return <Firstname  form={form} setForm={setForm}/>;
       case 2:
-        return <SetGoals goals={goals} setGoals={setGoals} />;
+        return <SetGoals form={form} setForm={setForm} />;
       case 3:
-        return <GoalBarriers goalBarriers={goalBarriers} setGoalBarriers={setGoalBarriers} />;
+        return (
+          <GoalBarriers form={form} setForm={setForm}/>
+        );
       case 4:
-        return <ActivityLevel activityLevel={activityLevel} setActivityLevel={setActivityLevel} />;
+        return (
+          <ActivityLevel form={form} setForm={setForm}/>
+        );
       case 5:
-        return <Gender gender={gender} setGender={setGender} />;
+        return <Gender form={form} setForm={setForm} />;
       case 6:
-        return <HeightWeight  />;
+        return (
+          <HeightWeight form={form} setForm={setForm}/>
+        );
       case 7:
-        return <Signup  email={email} setEmail={setEmail}  password={password} setPassword={setPassword}/>;
+        return (
+          <Signup
+           form={form} setForm={setForm}
+          />
+        );
 
       default:
         return 0;
     }
   };
+
+ 
   return (
     <div className="form">
       <div className="nav">
         <img src="\fit.png" alt="fit" />
+        
+        <Link to="/login"><p id="ptag">LOGIN</p></Link>
       </div>
       <div className="form-container"></div>
       <div className="header">
@@ -89,7 +122,7 @@ console.log(gender)
         </div>
       </div>
 
-      {page === 7 || page===0? null : (
+      {page === 7 || page === 0 ? null : (
         <div id="footer">
           <button
             id="back"
