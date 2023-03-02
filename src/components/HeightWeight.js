@@ -25,7 +25,8 @@ function HeightWeight() {
       <input 
       type="number"
       min={0}
-      max={200}/>
+      max={200}
+      onChange={(e)=>{console.log(e.target.value)}}/>
      <span>Kg</span>
 
       </label>
@@ -38,7 +39,9 @@ function HeightWeight() {
       <input 
       type="number"
       min={0}
-      max={200}/>
+      max={200}
+      onChange={(e)=>{console.log(e.target.value)}}/>
+
      <span>Kg</span>
 
       </label>

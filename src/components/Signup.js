@@ -1,16 +1,34 @@
-import React from "react";
+import React,{useState} from "react";
 import './Signup.css'
-function Signup() {
+function Signup( {email,setEmail,password,setPassword}) {
+
+  const[isChecked,setIsChecked]=useState(false)
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+  };
+console.log(email)
+console.log(password)
+
+  console.log(isChecked)
   return (
     <div className="maindiv">
       <div className="inputdiv">
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <h6>Must be atleast 10 characters no spaces</h6>
+        <input type="email" placeholder="Email" 
+        onChange={(e)=>{setEmail(e.target.value)}}
+        value={email}
+        />
+        <input type="password" placeholder="Password" 
+                onChange={(e)=>{setPassword(e.target.value)}}
+                value={password}
+                />
+        <h6>Must be atleast 8 characters no spaces</h6>
       </div>
       <div className="terms">
         <label>
-          <input type="checkbox" />
+          <input type="checkbox"
+          checked={isChecked}
+          onChange={handleCheckboxChange}
+           />
           <span>Terms & Conditions </span>
           <p>I agree to Terms & Conditions and Privacy Policy</p>
         </label>

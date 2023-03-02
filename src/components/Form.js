@@ -28,7 +28,8 @@ function Form() {
   const[goalBarriers, setGoalBarriers] = useState('');
   const[activityLevel, setActivityLevel] =useState({})
   const[gender, setGender] = useState({});
-  
+  const[email,setEmail]=useState('')
+  const[password,setPassword]=useState('')
 console.log(gender)
 
   const PageDisplay = () => {
@@ -46,9 +47,9 @@ console.log(gender)
       case 5:
         return <Gender gender={gender} setGender={setGender} />;
       case 6:
-        return <HeightWeight />;
+        return <HeightWeight  />;
       case 7:
-        return <Signup />;
+        return <Signup  email={email} setEmail={setEmail}  password={password} setPassword={setPassword}/>;
 
       default:
         return 0;
