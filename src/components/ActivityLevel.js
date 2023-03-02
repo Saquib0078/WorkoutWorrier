@@ -21,7 +21,7 @@ const card=[
   }
 
   ]
-  function Card({ card, isSelected, onClick }) {
+  function Card({ card, isSelected, onClick,id }) {
     const style = {
      color: isSelected ? '#4F80FF' : 'rgb(138, 134, 134)',
   
@@ -36,17 +36,19 @@ const card=[
   }
 
 
-function ActivityLevel() {
+function ActivityLevel({activityLevel, setActivityLevel}) {
   const [selectedCard, setSelectedCard] = useState(null);
   const handleCardClick = (card) => {
     setSelectedCard(card);
+    setActivityLevel(card)
+    // console.log(setActivityLevel(card))
   };
   return (
     <div className='MainActivity'>
     <div className='activity'>
-     {card.map((card) => (
+     {card.map((card,index) => (
         <Card
-          key={card}
+          key={index}
           card={card}
           isSelected={selectedCard === card}
           onClick={() => handleCardClick(card)}

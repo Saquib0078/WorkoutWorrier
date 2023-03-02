@@ -16,10 +16,11 @@ function Card({ card, isSelected, onClick }) {
 }
 
 
-function GoalBarriers() {
+function GoalBarriers({setGoalBarriers}) {
   const [selectedCard, setSelectedCard] = useState(null);
   const handleCardClick = (card) => {
     setSelectedCard(card);
+    setGoalBarriers(card);
   };
   return (
     <div className='goal'>

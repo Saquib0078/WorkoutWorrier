@@ -9,8 +9,11 @@ function HeightWeight() {
        <h4>How tall are you?</h4>
       <label>
       <input 
-      type="number"/>
-     <span>Kg</span>
+      type="number"
+      min={0}
+      max={8}
+      onChange={(e)=>{console.log(e.target.value)}}/>
+     <span>Feet</span>
 
       </label>
       </div>
@@ -20,7 +23,9 @@ function HeightWeight() {
        
        <label>
       <input 
-      type="number"/>
+      type="number"
+      min={0}
+      max={200}/>
      <span>Kg</span>
 
       </label>
@@ -31,7 +36,9 @@ function HeightWeight() {
       <label>
         
       <input 
-      type="number"/>
+      type="number"
+      min={0}
+      max={200}/>
      <span>Kg</span>
 
       </label>
