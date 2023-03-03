@@ -1,0 +1,50 @@
+.calories {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+}
+
+.calories__maindiv {
+  width: 400px;
+  height: 400px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+}
+
+.calories__heading {
+  text-align: center;
+  color: blue;
+}
+
+.calories__maindiv p {
+  text-align: center;
+}
+
+.calories__count{
+    text-align: center;
+}
+
+
+.calories__count-subheading{
+    background-color: rgb(177, 173, 173);
+    width: 20%;
+    height: 30px;
+    border-radius: 5px;
+    
+    margin: auto;
+   
+}
+
+.calories__maindiv button{
+    padding: 15px;
+    background-color:rgb(105, 105, 230);
+    color: aliceblue;
+    width: 80%;
+    margin: auto;
+    border: none;
+    border-radius: 5px;
+}

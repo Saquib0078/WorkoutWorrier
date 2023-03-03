@@ -7,8 +7,13 @@ import GoalBarriers from "./GoalBarriers";
 import {Link} from "react-router-dom"
 import SetGoals from "./SetGoals";
 import Gender from "./Gender";
+import axios from "axios";
 import HeightWeight from "./HeightWeight";
+import Username from "./Username"
+import { useNavigate } from "react-router-dom";
+
 import "./Form.css";
+
 function Form() {
   const FormTitles = [
     "Welcome",
@@ -22,13 +27,9 @@ function Form() {
   ];
 
   const [page, setPage] = useState(0);
-  // const [fname, setFname] = useState("");
-  // const [goals, setGoals] = useState("");
-  // const [goalBarriers, setGoalBarriers] = useState("");
-  // const [activityLevel, setActivityLevel] = useState({});
-  // const [gender, setGender] = useState({});
-  // const [heightWeight, setHeightWeight] = useState({});
-  // const [regDetails, setRegDetails] = useState({});
+  const [error, setError] =useState('')
+  const navigate=useNavigate()
+
   const[form,setForm]=useState( {
     fname :"",
      goals:"",
@@ -43,20 +44,55 @@ function Form() {
              goalweight: '',
              terms:""
   })
-  console.log(form)
+  // console.log(form)
 
   // useEffect(() => {
-  //   console.log(fullDetailsObj);
-  // }, [fullDetailsObj.regDetails.password]);
-
-  // console.log(fullDetailsObj);
+    
+  // }, []);
+  const postForm=async (req,res)=>{
+    try {
+     const {data}=await axios.post("http://localhost:3000/register",form)
+      return data
+   
+    } catch (error) {
+     console.log(error)
+    }
+    const {data, message, status} = await postForm()
+    console.log(data)
+   
+     // if(!data) return;
+     // setForm( {
+     //   fname :"",
+     //    goals:"",
+     //     barriers:"",
+     //      activityLevel: '',
+     //       gender: '',
+     //        country: '',
+     //         email: '',
+     //          password: '',
+     //           height: '', 
+     //           weight: '',
+     //            goalweight: '',
+     //            terms:""
+     // })
+     // console.log(message,status)
+     // console.log(data)
+     if(status===true){
+       navigate('/login')
+     }else{
+       console.log("error")
+     }
+   
+     }
+     
+  
 
   const PageDisplay = () => {
     switch (page) {
       case 0:
         return <Welcome page={page}  setPage={setPage}/>;
       case 1:
-        return <Firstname  form={form} setForm={setForm}/>;
+        return <Firstname error={error} setError={setError} form={form} setForm={setForm}/>;
       case 2:
         return <SetGoals form={form} setForm={setForm} />;
       case 3:
@@ -75,13 +111,20 @@ function Form() {
         );
       case 7:
         return (
-          <Signup
-           form={form} setForm={setForm}
-          />
+          <Signup setPage={setPage}
+          form={form} setForm={setForm} 
+
+          /> 
+        );
+        case 8:
+        return (
+          <Username setPage={setPage}
+           form={form} setForm={setForm} 
+          /> 
         );
 
       default:
-        return 0;
+        return ;
     }
   };
 
@@ -121,9 +164,9 @@ function Form() {
           ></div>
         </div>
       </div>
-
-      {page === 7 || page === 0 ? null : (
-        <div id="footer">
+      {/* page === 7 ||  */}
+      { page === 7 || page === 0 ? null : (
+      <div id="footer">
           <button
             id="back"
             disabled={page === 0}
@@ -134,12 +177,16 @@ function Form() {
             Back
           </button>
           <button
-            disabled={page === FormTitles.length - 1}
+            disabled={page === FormTitles.length - 1 }
             onClick={() => {
-              setPage((currpage) => currpage + 1);
+              if(!form.fname) setError("First Name Required")
+              if(!form.username) setError("User Name Required")
+              if(page === 8 ) postForm()
+             if (form.fname)  setPage((currpage) => currpage + 1);
             }}
           >
-            Next
+            {page === 8 && 'Finish'}
+            {page !== 8 && 'Next'}
           </button>
         </div>
       )}

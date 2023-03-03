@@ -1,11 +1,11 @@
 import React from 'react'
 
-function PersonalInfo() {
+const Home = () => {
   return (
     <div>
-
+      Home
     </div>
   )
 }
 
-export default PersonalInfo
+export default Home

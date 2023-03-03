@@ -1,31 +1,21 @@
 import React, { useState } from "react";
 import "./Signup.css";
-import axios from "axios";
-function Signup({ form,setForm  }) {
-  const [compState, setCompState] = useState({});
+function Signup({ form,setForm, setPage }) {
   const [isChecked,setIsChecked]=useState(false)
-  const handleContinueClick = async (req,res) => {
-    try {
-      const { data } = await axios.post("http://localhost:3000/register",{
-        form
-      });
-      return res.json(data);
-    } catch (err) {
-      console.log(err);
-    }
+  
 
+     
+  const handleContinueClick = () => {
+   setPage((curr)=>curr+1)
   };
   // console.log(isChecked)
   const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked);
-    setForm({...form,terms:isChecked})
+ setForm({...form,terms:!isChecked})
    
   };
 
-  // setRegDetails({
-  //   ...regDetails,
-  //   terms: isChecked
-  // })
+ 
 
   
 
