@@ -4,6 +4,9 @@ import './Calorie.css'
 const Calorie = () => {
   return (
     <div className='calories'>
+
+      <div className='navbar'>Calories</div>
+      
       <div className='calories__maindiv'>
       <h1 className='calories__heading'>Congratulations!</h1>
       <p >Your daily net calorie goal is:</p>

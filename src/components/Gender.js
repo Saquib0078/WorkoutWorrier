@@ -40,13 +40,13 @@ function Gender({ form,setForm  }) {
       </div>
 
       <div className="dob">
-        <h4>When were you born?</h4>
+        <h4>Whats your current age?</h4>
         <input
-          type="date"
+          type="number"
           onChange={(e) => {
             setForm({
               ...form,
-              date: e.target.value,
+              age: e.target.value,
               country: "India",
             });
           }}
