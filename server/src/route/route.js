@@ -31,6 +31,6 @@ router.delete('/progress/:_id',ProgressController.deleteProgress)
 
 
 router.post('/calories',CalorieController.CountCalories)
-
+router.get('/calories/:id',CalorieController.getCalorie)
 
 module.exports = router

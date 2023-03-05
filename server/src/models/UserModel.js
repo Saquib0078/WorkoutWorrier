@@ -16,9 +16,13 @@ const userSchema = new mongoose.Schema({
     required: true
   },
   activityLevel:{
-    type:String,
+    type:Object,
     enum:["Not Very Active","Lightly Active","Active","Very Active"],
     required: true
+  },
+  age:{
+    type:Number,
+    required:true
   },
   gender:{
     type:String,
@@ -27,7 +31,7 @@ const userSchema = new mongoose.Schema({
   },
   country:{
     type:String,
-    enum:["india","pakistan","Uk","UAE","USA","Russia"],
+    enum:["India","pakistan","Uk","UAE","USA","Russia"],
     required: true
   },
   email: {
@@ -51,6 +55,16 @@ const userSchema = new mongoose.Schema({
     type:Number,
     required: true
   },
+  terms:{
+    type:Boolean,
+    default:false
+  },
+  username:{
+type:String,
+required:true,
+unique:true
+  },
+  
   created_at: {
     type: Date,
     default: Date.now
@@ -61,4 +75,4 @@ const userSchema = new mongoose.Schema({
   }
 });
 
-const User = mongoose.model('User', userSchema);
+module.exports = mongoose.model('User', userSchema);

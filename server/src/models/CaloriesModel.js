@@ -1,34 +1,11 @@
 const mongoose = require('mongoose');
 
 const calorieSchema = new mongoose.Schema({
-  user: {
+  userid: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
-  height: {
-    type: Number,
-    required: true
-  },
-  weight: {
-    type: Number,
-    required: true
-  },
-  age: {
-    type: Number,
-    required: true
-  },
-  gender: {
-    type: String,
-    required: true
-  },
-  activityLevel: {
-    type: String,
-    required: true
-  },
-  goal: {
-    type: String,
-    required: true
-  },
+
   tdee: {
     type: Number,
   },
