@@ -11,9 +11,10 @@ import axios from "axios";
 import HeightWeight from "./HeightWeight";
 import Username from "./Username";
 import { useNavigate } from "react-router-dom";
-import { Audio } from "react-loader-spinner";
+import { Bars } from "react-loader-spinner";
 
 import "./Form.css";
+import Calorie from "./Calorie";
 
 function Form() {
   const FormTitles = [
@@ -32,20 +33,47 @@ function Form() {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const NextClickHandler = () => {
-    if (!form.fname) setError("First Name Required");
-    if (!form.username) setError("User Name Required");
-         
-    if (page === 8) postForm();
-    if (form.fname) {
+  const NextClickHandler = async () => {
+    if (page === 8) await postForm();
+
+    const requiredFields = [
+      "fname",
+      "goals",
+      "barriers",
+      "activityLevel",
+      "gender",
+      "age",
+      "country",
+      "height",
+      "weight",
+      "goalweight",
+      "email",
+      "password",
+      "terms",
+      "username",
+    ];
+
+    let allFieldsPresent = true;
+
+    // for (let field of requiredFields) {
+    //   if (!form[field]) {
+    //     setError(`${field} is required`);
+    //     console.log(page);
+    //     allFieldsPresent = false;
+    //     break;
+    //   }
+    // }
+
+    if (allFieldsPresent) {
       setIsLoading(true); // show the spinner
+
       setTimeout(() => {
         setPage((currpage) => currpage + 1);
+
         setIsLoading(false); // hide the spinner after 2 seconds
-      }, 2000);
+      }, 1000);
     }
   };
-  
 
   const [form, setForm] = useState({
     fname: "",
@@ -65,39 +93,17 @@ function Form() {
   console.log(form);
 
   // useEffect(() => {
-
   // }, []);
+
   const postForm = async (req, res) => {
     try {
       const { data } = await axios.post("http://localhost:3000/register", form);
-      return data;
+      // console.log( data.data._id);
+      const userId = data.data._id;
+      if (data.status) navigate(`/calorie/${userId}`);
+      console.log(userId)
     } catch (error) {
       console.log(error);
-    }
-    const { data, message, status } = await postForm();
-    console.log(data);
-
-    // if(!data) return;
-    // setForm( {
-    //   fname :"",
-    //    goals:"",
-    //     barriers:"",
-    //      activityLevel: '',
-    //       gender: '',
-    //        country: '',
-    //         email: '',
-    //          password: '',
-    //           height: '',
-    //           weight: '',
-    //            goalweight: '',
-    //            terms:""
-    // })
-    // console.log(message,status)
-    // console.log(data)
-    if (status === true) {
-      navigate("/login");
-    } else {
-      console.log("error");
     }
   };
 
@@ -184,33 +190,34 @@ function Form() {
             Back
           </button>
           <button
-             style={{ backgroundColor: isLoading ? "lightgrey" : "rgb(30, 65, 155)", 
-             border:"none"}}
-  disabled={page === FormTitles.length - 1}
-  onClick={NextClickHandler}
->
-  {page === 8 ? "Finish" : isLoading ? "" : "Next"}
-  {isLoading && (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
-      <Audio
-        height="80%"
-        width="20"
-        color="white"
-        ariaLabel="tail-spin-loading"
-        radius="1"
-        wrapperStyle={{}}
-        wrapperClass=""
-        visible={true}
-      />
-    </div>
-  )}
-</button>
-
+            style={{
+              backgroundColor: isLoading ? "lightgrey" : "rgb(30, 65, 155)",
+              border: "none",
+            }}
+            disabled={page === FormTitles.length - 1}
+            onClick={NextClickHandler}
+          >
+            {page === 8 ? "Finish" : isLoading ? "" : "Next"}
+            {isLoading && (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <Bars
+                  height="80%"
+                  width="20"
+                  color="white"
+                  ariaLabel="tail-spin-loading"
+                  radius="1"
+                  wrapperStyle={{}}
+                  wrapperClass=""
+                  visible={true}
+                />
+              </div>
+            )}
+          </button>
         </div>
       )}
     </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Welcome.css";
-import { TailSpin } from "react-loader-spinner";
+import { Bars } from "react-loader-spinner";
 
 function Welcome({ page, setPage }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -32,10 +32,10 @@ function Welcome({ page, setPage }) {
                     justifyContent: "center",
                   }}
                 >
-                  <TailSpin
+                  <Bars
                     height="80%"
                     width="20"
-                    color="#4fa94d"
+                    color="white"
                     ariaLabel="tail-spin-loading"
                     radius="1"
                     wrapperStyle={{}}

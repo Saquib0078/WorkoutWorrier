@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import './Login.css'
 import { useNavigate } from 'react-router-dom'
+import cookie from 'cookiejs';
 
 
 
@@ -29,7 +30,12 @@ const Login = () => {
   const postLogin = async (login) => {
     try {
       const { data } = await axios.post("http://localhost:3000/login", login)
+      const token = data.data.token;
+      cookie.set('token', token)
+      console.log(token)
       return data
+      
+
     } catch (error) {
       console.log(error)
     }

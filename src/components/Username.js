@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Firstname.css";
 
-function Username({form,setForm,error }) {
+function Username({form,setForm,error,postForm }) {
   const [isTouched, setIsToched] = useState(false)
   
   return (

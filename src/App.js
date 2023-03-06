@@ -13,7 +13,7 @@ function App() {
       <Route exact path="/" element={<Home />}/>
       <Route path="/login" element={<Login/>} />
       <Route path="/signup" element={<Form/>}/>
-      <Route path="/calorie" element={<Calorie/>}/>
+      <Route path="/calorie/:_id" element={<Calorie/>}/>
 
     </Routes>
     </BrowserRouter>

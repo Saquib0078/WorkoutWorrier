@@ -10,8 +10,8 @@ function HeightWeight({ form,setForm  }) {
         <label>
           <input
             type="number"
-            min={0}
-            max={8}
+            // min={122}
+            // max={243}
             onChange={(e) => {
               setForm({
                 ...form,
@@ -19,7 +19,7 @@ function HeightWeight({ form,setForm  }) {
               });
             }}
           />
-          <span>Feet</span>
+          <span>Cm</span>
         </label>
       </div>
       <div className="weight">

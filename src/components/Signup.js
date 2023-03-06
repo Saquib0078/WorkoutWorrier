@@ -1,23 +1,18 @@
 import React, { useState } from "react";
 import "./Signup.css";
-function Signup({ form,setForm, setPage }) {
-  const [isChecked,setIsChecked]=useState(false)
-  
+function Signup({ form, setForm, setPage,postForm }) {
+  const [isChecked, setIsChecked] = useState(false);
 
-     
   const handleContinueClick = () => {
-   setPage((curr)=>curr+1)
+    if (!form.email && !form.password) return;
+    setPage((curr) => curr + 1);
+    // postForm()
   };
   // console.log(isChecked)
   const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked);
- setForm({...form,terms:!isChecked})
-   
+    setForm({ ...form, terms: !isChecked });
   };
-
- 
-
-  
 
   return (
     <div className="maindiv">
@@ -25,6 +20,7 @@ function Signup({ form,setForm, setPage }) {
         <input
           type="email"
           placeholder="Email"
+          required
           onChange={(e) =>
             setForm({
               ...form,
@@ -34,6 +30,7 @@ function Signup({ form,setForm, setPage }) {
         />
         <input
           type="password"
+          required
           onChange={(e) =>
             setForm({
               ...form,
@@ -46,9 +43,11 @@ function Signup({ form,setForm, setPage }) {
       </div>
       <div className="terms">
         <label>
-          <input type="checkbox"
-          onChange={handleCheckboxChange}
-          checked={isChecked} />
+          <input
+            type="checkbox"
+            onChange={handleCheckboxChange}
+            checked={isChecked}
+          />
           <span>Terms & Conditions </span>
           <p>I agree to Terms & Conditions and Privacy Policy</p>
         </label>
