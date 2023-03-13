@@ -8,7 +8,7 @@ app.use(cors())
 app.use(cors({
     origin: ['*']
   }))
-  
+  mongoose.set('strictQuery', true)
 
 app.use(multer().any());
 
@@ -30,3 +30,4 @@ app.use(function(req, res){
 app.listen(process.env.PORT || 3000, function(){
     console.log("Express app running on Port " + (process.env.PORT || 3000))
 })
+

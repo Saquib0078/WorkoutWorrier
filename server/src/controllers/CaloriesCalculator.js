@@ -84,10 +84,10 @@ const CountCalories = async (req, res) => {
     };
     let createdata=await CalorieModel.create(newCalorieData)
     console.log(createdata)
-    const populate=await createdata.populate({path:'User',strictPopulate:false})
-     console.log(populate)
+    // const populate=await createdata.populate({path:'User',strictPopulate:false})
+    //  console.log(populate)
     // Return the result
-    return res.status(200).send({ status: true, message: 'Success', data: { calories: newCalorieData } });
+    return res.status(200).send({ status: true, message: 'Success', data: { calories: createdata } });
   } catch (error) { 
 
     return res.status(500).send({ status: false, message: error.message });
@@ -98,9 +98,9 @@ const CountCalories = async (req, res) => {
 const getCalorie= async (req,res)=>{
  
   try {
-    const userid=req.params
+    const userId=req.params
 
-    const user=await UserModel.findOne({_id:userid})
+    const user=await UserModel.findOne({_id:userId})
     if(!user) return res.status(400).send({status:false,message:"No user found"})
 
   return res.status(200).send({status:true,data:findCaloriedata})  

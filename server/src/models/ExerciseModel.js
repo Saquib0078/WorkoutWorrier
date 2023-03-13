@@ -29,7 +29,9 @@ const exerciseSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  
+  image:{
+type:String
+  },
   isDeleted:{
     type:Boolean,
     default:false

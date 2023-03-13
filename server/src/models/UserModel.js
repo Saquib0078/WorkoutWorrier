@@ -64,6 +64,32 @@ type:String,
 required:true,
 unique:true
   },
+  tdee: {
+    type: Number,
+  },
+  protein: {
+    type: Number,
+  },
+  carbs: {
+    type: Number,
+  },
+  fats: {
+    type: Number,
+    
+  },
+  caloriesData:{
+type:Number
+  },
+  AddExercises: [{ type: mongoose.Schema.Types.ObjectId, ref: "Exercise"
+ }]
+ 
+ ,
+ workouts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Workout"
+}]
+
+,
+
+
   
   created_at: {
     type: Date,

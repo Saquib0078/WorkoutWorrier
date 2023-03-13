@@ -12,6 +12,19 @@ return res.status(201).send({status:true,data:excercise})
 }
 }
 
+const getExrecisebyId=async (req,res)=>{
+  try {
+    const exerciseid=req.params
+  const findExercise=await ExerciseModel.findOne({_id:exerciseid})
+  if(!findExercise) return res.status(400).send({status:false,message:"No user Found"})
+  
+  return res.status(200).send({status:true,data:findExercise})
+  } catch (error) {
+    return res.status(500).send({status:false,message:error.message})
+  
+  }
+}
+
 const getExercisesByQueries = async (req, res) => {
     const query = req.query;
     const orQuery = [];
@@ -43,11 +56,11 @@ const getExercisesByQueries = async (req, res) => {
 
 const UpdateExercise=async(req,res)=>{
     try {
-        let exid=req.params
+        // let exid=req.params
         let data=req.body
-        if(!exid) return res.status(400).send({status:false,message:"userid is required"})
-
-        let updateExercise=await ExerciseModel.findOneAndUpdate({ _id: exid }, data, { new: true })
+        // if(!exid) return res.status(400).send({status:false,message:"userid is required"})
+        // _id: exid ,
+        let updateExercise=await ExerciseModel.updateMany({muscle:"triceps"}, data, { new: true })
         return res.status(200).send({ status: true, message: 'Success', data: updateExercise })
 
     } catch (error) {
@@ -86,5 +99,5 @@ module.exports.createExcercise = createExcercise
 module.exports.getExercisesByQueries = getExercisesByQueries
 module.exports.UpdateExercise = UpdateExercise
 module.exports.deleteExercise = deleteExercise
-
+module.exports.getExrecisebyId=getExrecisebyId
 

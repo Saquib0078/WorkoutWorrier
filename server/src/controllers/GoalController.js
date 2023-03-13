@@ -1,12 +1,13 @@
 const ExerciseModel= require('../models/ExerciseModel')
 const UserModel=require('../models/UserModel')
-const GoalModel=require('../models/GoalModel')
+const GoalModel=require('../models/GoalModel');
+const WorkoutModel = require('../models/WorkoutModel');
 
 const CreateGoal=async (req,res)=>{
     try {
         const { user_id, exercise_id, target_value } = req.body;
         
-        if (!user_id || !exercise_id || !target_value) {
+        if (!user_id || !exercise_id || !target_value||!workout_id) {
           return res.status(400).json({ status: false, message: 'Missing required fields.' });
         }
     
@@ -14,6 +15,10 @@ const CreateGoal=async (req,res)=>{
         const user = await UserModel.findById(user_id);
         if (!user) {
           return res.status(404).json({ status: false, message: 'User not found.' });
+        }
+        const workout = await WorkoutModel.findById(workout_id);
+        if (!workout) {
+          return res.status(404).json({ status: false, message: 'Workout not found.' });
         }
     
         const exercise = await ExerciseModel.findById(exercise_id);
