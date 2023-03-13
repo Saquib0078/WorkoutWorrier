@@ -1,0 +1,112 @@
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 10px;
+    height: 100vh;
+    background-color: black;
+  }
+  .divsss{
+    display: flex;
+    margin: 10px;
+  }
+  
+  .goals
+  {
+    background-color: aquamarine;
+    grid-row: 1 ;
+    grid-column: 1 ;
+    border-radius: 10px;
+    text-align: center;
+    width: 35%;
+    height: 80%;
+  }
+  .todays-activity {
+    background-color: aqua;
+    grid-row: 1 ;
+    grid-column: 1 / span 2;
+    margin-left: 10px;
+    border-radius: 10px;
+    width: 35%;
+    text-align: center;
+    height: 80%;
+
+  }
+  
+  .activity {
+    background-color: aqua;
+    grid-row: 2;
+    grid-column: 1;
+    border-radius: 10px;
+    margin-top: -50px;
+    width: 70%;
+  }
+  
+  .user-activity-chart {
+    grid-row: 2 ;
+    grid-column: 2;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    width: 70%;
+    height: 70%;
+
+  }
+  
+  .fitness-goal {
+    grid-row: 3;
+    grid-column: 1;
+    height: 50%;
+    width: 70%;
+    background-color: aquamarine;
+    border-radius: 10px;
+  }
+  
+  .popular-trainers {
+    background-color: antiquewhite;
+    grid-row: 3;
+    grid-column: 2;
+    height: 100%;
+    /* height: calc(50% - 10px); */
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-top: -80px;
+  }
+
+  
+  
+  .trainers-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0px;
+    margin: 10px;
+    margin-top: -50px;
+  }
+  
+  .trainer-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    
+    /* padding: 20px; */
+    height: 150px;
+    width: 180px;
+  }
+  
+  .trainer-card h3 {
+    margin-top: 0;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .trainer-card p {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  

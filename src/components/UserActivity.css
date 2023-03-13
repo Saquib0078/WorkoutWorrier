@@ -1,0 +1,84 @@
+.ParentDiv {
+  background-color: rgb(37, 37, 37);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+.overview{
+    background-color: grey;
+    height: 30%;
+    width: 30%;
+    display: flex;
+    margin-left: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    color: aliceblue;
+    flex-direction: row;
+    text-align: center;}
+
+    .overview .Calories{
+        display: flex;
+        flex-direction: row;
+        
+    }
+
+
+#topheading {
+  margin-left: 20px;
+  color: aliceblue;
+}
+
+.progressCircle {
+  padding: 20px;
+}
+
+.Calories {
+    font-size: 12px;
+  text-align: center;}
+
+.card1 {
+ 
+  /* border: none !important; */
+}
+
+.progressCircle  {
+  height: 50%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.progressCircle img{
+    height: 100%;
+    width: 100%;
+}
+
+.card2 {
+    background-color: grey;
+    height: 30%;
+    width: 30%;
+    display: flex;
+    margin-left: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    color: aliceblue;
+    flex-direction: row;
+    text-align: center;
+}
+.card2 img {
+  height: 30px;
+  margin-top: 30px;
+}
+
+.card2 .exercise {
+  font-size: 12px;
+  text-align: center;
+}
+
+.card2 .sets {
+  font-size: 10px;
+  text-align: center;
+  background-color: purple;
+  padding: 20px;
+  border-radius: 10px;
+}

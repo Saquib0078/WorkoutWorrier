@@ -1,0 +1,66 @@
+.cardExerciseParent {
+  display: grid;
+  
+  grid-template-columns: repeat(5, 1fr); /* 3 columns with equal width */
+  grid-gap: 5px;
+  background-color:rgb(118, 119, 121);
+  width: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+.cardExercise button {
+  padding: 8px;
+  border: none;
+  width: 30%;
+  height: 12%;
+  margin: 5px;
+  bottom: 0;
+  position: absolute;
+  right: 0;
+  border-radius: 5px;
+  color: aliceblue;
+  background: rgb(23, 98, 163);
+}
+
+.navBar{
+  height: 60px;
+  background-color: black;
+  color:aliceblue;
+  text-align: center;
+  width:100vw;
+  cursor: pointer;
+}
+
+.cardExercise {
+  width: auto;
+  /* padding: 15px; */
+  background-color: rgb(95, 114, 114);
+  backdrop-filter: blur(10px);
+   display: flex;
+  color: white;
+  text-transform: capitalize;
+  border-radius: 5px;
+  margin: 10px;
+  height: 280px;
+  transition: all 0.2s;
+}
+.cardExercise img {
+  height: 65%;
+  width: 100%;
+}
+
+
+.cardExercise p , h3{
+  margin: 5px;
+  color: aliceblue;
+}
+
+.cardExercise:hover {
+  box-shadow: rgba(183, 178, 178, 0.8) 0px 40px 58px -16px,
+    rgb(0 0 0 / 50%) 0px 30px 22px -10px;
+  transform: scale(1.05);
+  border-color: rgba(249, 249, 249, 0.8);
+}

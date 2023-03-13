@@ -1,0 +1,48 @@
+.MainParent img {
+ 
+  height: 99vh;
+  width: 100vw;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  position: relative;
+  filter: blur(3px);
+}
+
+.detailsPage {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  color: white;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.headingDiv {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 0.9rem;
+    width: fit-content;
+    margin-bottom: 1rem;
+    border-color: 2px solid white;
+    font-style: italic;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    backdrop-filter: blur(10px);
+  }
+  
+  .instDiv {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+    border-radius:10px;
+    min-height: 15rem;
+    width: fit-content;
+    font-style: italic;
+    margin-top:2rem ;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    backdrop-filter: blur(10px);
+  }
+  
+
+

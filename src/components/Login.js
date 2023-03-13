@@ -50,7 +50,7 @@ const Login = () => {
       email: "",
       password: ""
     })
-    navigate('/')
+    navigate('/home')
   }
 
   console.log(login)
